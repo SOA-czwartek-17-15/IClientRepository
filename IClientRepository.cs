@@ -7,10 +7,12 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ServiceModel.Description;
 
-namespace ClientRepository {
+namespace ClientRepository
+{
 
     [ServiceContract]
-    public interface IClientRepository {
+    public interface IClientRepository
+    {
 
         /// <summary>
         /// Tworzy klienta w serwisie ClientRepository z danymi osobistymi podanymi jako parametr
@@ -40,11 +42,10 @@ namespace ClientRepository {
 
     }
 
-    [DataContract(Namespace = "ClientRepository")]
-    public enum GenderType { MALE, FEMALE }
 
     [DataContract(Namespace = "ClientRepository")]
-    public class ClientInformation {
+    public class ClientInformation
+    {
 
         [DataMember]
         public string FirstName { get; set; }
@@ -53,7 +54,16 @@ namespace ClientRepository {
         public string LastName { get; set; }
 
         [DataMember]
-        public string Address { get; set; }
+        public string Country { get; set; }
+
+        [DataMember]
+        public string City { get; set; }
+
+        [DataMember]
+        public string Street { get; set; }
+
+        [DataMember]
+        public string PostCode { get; set; }
 
         [DataMember]
         public string BirthPlace { get; set; }
@@ -61,8 +71,5 @@ namespace ClientRepository {
         [DataMember]
         public DateTime BirthDate { get; set; }
 
-        [DataMember]
-        public GenderType Gender { get; set; }
-		
-    } 
+    }
 }
